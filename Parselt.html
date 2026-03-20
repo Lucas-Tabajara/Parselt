@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perito Contábil - Relatório Longo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Perito Contábil 🔒</h2>
+        <p>Arraste a planilha. O resultado em texto aparecerá abaixo para copiar.</p>
+        
+        <div class="drop-zone" id="drop-zone">
+            <span>Arraste o arquivo aqui ou clique</span>
+            <input type="file" class="drop-zone__input" id="file-input" accept=".xlsx, .xls, .csv">
+        </div>
+        
+        <div id="result-area" style="display: none;">
+            <textarea id="output-text" spellcheck="false" readonly></textarea>
+            
+            <div class="button-group">
+                <button id="copy-btn">Copiar para o Google Planilhas</button>
+                <button id="clear-btn">Limpar</button>
+            </div>
+        </div>
+
+        <div class="status" id="status"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+/* ESTRUTURA GERAL */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+/* ÁREA DE UPLOAD */
+.drop-zone {
+    width: 100%;
+    height: 120px;
+    border: 3px dashed #009578;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.drop-zone:hover {
+    background-color: #e8f0fe;
+    border-color: #004d3d;
+}
+
+/* ÁREA DE RESULTADO (TEXTO) */
+#result-area {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#output-text {
+    width: 100%;
+    height: 400px; /* Suporta relatórios longos */
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background: #fdfdfd;
+    white-space: pre; 
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+
+/* GRUPO DE BOTÕES */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#copy-btn {
+    flex: 3; /* Proporção maior para o botão principal */
+    padding: 15px;
+    background-color: #009578;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#copy-btn:hover {
+    background-color: #007a62;
+}
+
+#copy-btn:active {
+    background-color: #004d3d;
+}
+
+#clear-btn {
+    flex: 1; /* Botão secundário menor */
+    padding: 15px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#clear-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* MENSAGENS DE SISTEMA */
+.status {
+    margin-top: 15px;
+    color: #009578;
+    font-weight: bold;
+}
