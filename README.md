@@ -7,114 +7,87 @@
 
 <a name="português">
 
-📑 Parselt — Automatizador de Diárias para Peritos Contábeis
+# 📑 Parselt — Automatizador de Diárias para Peritos Contábeis
+**Status do Projeto: Ativo 🚀 | Foco: Full Stack JavaScript & DevOps**
 
-    Status do Projeto: Ativo 🚀 | Foco: Full Stack JavaScript & DevOps
+O Parselt é uma ferramenta client-side de alta performance, desenvolvida para otimizar o fluxo de trabalho de peritos e auditores. Ele automatiza a extração de registros de horários em planilhas e aplica regras de negócio dinâmicas para o cálculo instantâneo de diárias devidas.
 
-O Parselt é uma ferramenta client-side de alta performance, desenvolvida para otimizar o fluxo de trabalho de peritos e auditores. Ele automatiza a extração de registros de horários em planilhas e aplica regras de negócio complexas para o cálculo instantâneo de diárias devidas.
-💡 O Problema e a Solução
+## 💡 O Problema e a Solução
+Profissionais de contabilidade frequentemente gastam horas calculando manualmente diárias a partir de dados brutos, um processo sujeito a erros humanos e fadiga mental. 
 
-Profissionais de contabilidade frequentemente gastam horas calculando manualmente diárias a partir de dados brutos, um processo sujeito a erros humanos e fadiga mental. O Parselt resolve isso processando arquivos .xlsx, .xls ou .csv diretamente no navegador.
+**A Solução:** O Parselt processa arquivos `.xlsx`, `.xls` ou `.csv` diretamente no navegador e permite que o usuário **configure as regras de cálculo em tempo real** (valor da diária e faixas de horas) para se adaptar a diferentes tribunais ou contratos.
 
-Diferencial de Segurança: Como o processamento é 100% local (no navegador do usuário), dados financeiros sensíveis nunca saem da máquina, garantindo total privacidade e conformidade com normas de proteção de dados.
-🛠️ Stack Técnica e Jornada
+**Diferencial de Segurança:** Como o processamento é 100% local (no navegador do usuário), dados financeiros sensíveis nunca saem da máquina, garantindo total privacidade e conformidade com normas de proteção de dados.
 
-Este projeto é um pilar fundamental da minha trajetória como estudante de Ciência da Computação (3º ano) e minha especialização em Desenvolvimento Full Stack.
+## 🛠️ Stack Técnica e Jornada
+Este projeto é um pilar fundamental da minha trajetória como estudante de **Ciência da Computação (3º ano)** e minha especialização em **Desenvolvimento Full Stack**.
 
-    JavaScript Vanila (ES6+): Motor principal para parsing de dados e normalização de datas.
+* **JavaScript Vanilla (ES6+):** Motor principal para parsing de dados, normalização de datas e manipulação dinâmica do DOM.
+* **SheetJS (XLSX):** Manipulação robusta de arquivos binários para compatibilidade total com Excel.
+* **CSS3:** Interface responsiva com foco em UX (estados de Drag & Drop e painel de configuração intuitivo).
+* **Ambiente de Dev:** Desenvolvido e testado em Linux Mint XFCE.
 
-    SheetJS (XLSX): Manipulação robusta de arquivos binários para compatibilidade total com Excel.
+## ⚙️ Regras de Negócio (100% Customizáveis)
+Diferente de versões estáticas, o motor de cálculo do Parselt é flexível. O usuário pode ajustar diretamente na interface:
+* **Valor da Diária:** Defina o valor monetário por unidade (Ex: R$ 20,00).
+* **Faixas de Horas:** Ajuste os limites de tempo (Ex: até 6h, até 12h).
+* **Quantidade de Diárias:** Determine quantas diárias são devidas em cada faixa.
 
-    CSS3: Interface responsiva com foco em UX (estados de Drag & Drop e feedback visual).
-
-    Ambiente de Dev: Desenvolvido e testado em Linux Mint XFCE.
-
-⚙️ Regras de Negócio (Configuráveis)
-
-O motor de cálculo segue critérios objetivos que podem ser ajustados conforme a necessidade:
-
-    Até 6 horas: 1 Diária.
-
-    De 6 a 12 horas: 2 Diárias.
-
-    Acima de 12 horas: 3 Diárias.
-
-    Valor Padrão: R$ 20,00 por unidade.
-
-🚀 Como Executar
-
+## 🚀 Como Executar
 Desenvolvido com mentalidade DevOps: simples, portátil e eficiente.
+1.  Clone o repositório: `git clone https://github.com/lucastabajara/parselt.git`
+2.  Abra o arquivo `Index.html` em qualquer navegador moderno.
+3.  **Configure os valores** no painel superior.
+4.  Arraste sua planilha para a zona de upload e copie o resultado formatado diretamente para o Google Planilhas ou Excel.
 
-    Clone o repositório: git clone https://github.com/lucastabajara/parselt.git
-
-    Abra o arquivo CriadorDeCsv.html em qualquer navegador moderno.
-
-    Arraste sua planilha para a zona de upload e copie o resultado formatado diretamente para o Google Planilhas ou Excel.
-
-📈 Roadmap (Melhorias Futuras)
-
-    [ ] Implementação de testes unitários com Jest para garantir a integridade dos cálculos.
-
-    [ ] Configuração de GitHub Actions para automação de CI/CD.
-
-    [ ] Suporte a internacionalização (i18n) para diferentes formatos de moeda e data.
-
+## 📈 Roadmap (Melhorias Futuras)
+* [x] Interface de configuração dinâmica para regras de negócio.
+* [ ] Implementação de persistência via **LocalStorage** para salvar configurações do usuário.
+* [ ] Implementação de testes unitários com Jest para garantir a integridade dos cálculos.
+* [ ] Configuração de GitHub Actions para automação de CI/CD.
+* [ ] Suporte a internacionalização (i18n) para diferentes formatos de moeda e data.
 </a>
     ------------------------------------
 
 <a name="english">
 
-    📑 Parselt — Professional Allowance Automation for Auditors
+  # 📑 Parselt — Daily Allowance Automator for Accounting Experts
+**Project Status: Active 🚀 | Focus: Full Stack JavaScript & DevOps**
 
-    Project Status: Active 🚀 | Focus: Full Stack JavaScript & DevOps
+Parselt is a high-performance client-side tool developed to optimize the workflow of accounting experts and auditors. It automates time-log extraction from spreadsheets and applies dynamic business rules for instant allowance calculations.
 
-Parselt is a high-performance client-side tool designed to streamline the workflow of accounting experts and auditors. It automates the extraction of time logs from spreadsheets and instantly applies complex business rules to calculate daily allowances.
+## 💡 Problem & Solution
+Accounting professionals often spend hours manually calculating daily allowances from raw data—a process prone to human error and mental fatigue.
 
-💡 The Problem & The Solution
+**The Solution:** Parselt processes `.xlsx`, `.xls`, or `.csv` files directly in the browser and allows users to **configure calculation rules in real-time** (allowance values and hour thresholds) to adapt to different court orders or contracts.
 
-Accounting professionals often spend hours manually calculating daily rates from raw data, which is prone to human error and fatigue. Parselt solves this by processing .xlsx, .xls, or .csv files directly in the browser.
+**Security First:** Since processing is 100% local (client-side), sensitive financial data never leaves the user's machine, ensuring full privacy and data protection compliance.
 
-Key Advantage: Since the processing is entirely local (client-side), sensitive financial data never leaves the user's machine—ensuring total privacy and security.
+## 🛠️ Tech Stack & Journey
+This project is a key milestone in my journey as a **Computer Science student (3rd year)** specializing in **Full Stack Development**.
 
-🛠️ Tech Stack & Learning Journey
+* **Vanilla JavaScript (ES6+):** Core engine for data parsing, date normalization, and dynamic DOM manipulation.
+* **SheetJS (XLSX):** Robust binary file handling for full Excel compatibility.
+* **CSS3:** Responsive UI focused on UX (Drag & Drop states and intuitive configuration panel).
+* **Dev Environment:** Developed and tested on Linux Mint XFCE.
 
-This project is a core part of my journey as a Computer Science student (3rd Year) and my specialization in Full Stack Development.
+## ⚙️ Business Rules (100% Customizable)
+Unlike static scripts, Parselt's calculation engine is flexible. Users can adjust the following parameters directly through the UI:
+* **Allowance Value:** Fully customize the monetary value per unit (e.g., R$ 20.00).
+* **Hour Thresholds:** Manually define time limits (e.g., up to 6h, up to 12h).
+* **Allowance Quantity:** Set exactly how many units are due for each time bracket.
 
-    Vanilla JavaScript (ES6+): Core engine for data parsing and date normalization.
+## 🚀 Getting Started
+Developed with a DevOps mindset: simple, portable, and efficient.
+1. Clone the repository: `git clone https://github.com/lucastabajara/parselt.git`
+2. Open `Index.html` in any modern browser.
+3. **Configure your values** in the top panel.
+4. Drag your spreadsheet into the drop zone and copy the formatted result directly to Google Sheets or Excel.
 
-    SheetJS (XLSX): Robust binary file manipulation for Excel compatibility.
-
-    CSS3: Responsive UI with a focus on UX (Drag & Drop states and visual feedback).
-
-    Linux Mint XFCE: My primary development environment for building and testing.
-
-⚙️ Business Rules (Configurable)
-
-The calculation engine follows objective criteria that can be easily adjusted in the code:
-
-    Up to 6 hours: 1 Daily Allowance.
-
-    6 to 12 hours: 2 Daily Allowances.
-
-    Over 12 hours: 3 Daily Allowances.
-
-    Standard Value: R$ 20.00 per unit.
-
-🚀 How to Run
-
-Designed with a DevOps mindset—simple, portable, and efficient:
-
-    Clone the repository: git clone https://github.com/lucastabajara/parselt.git
-
-    Open CriadorDeCsv.html in any modern web browser.
-
-    Drag your spreadsheet into the drop zone and copy the formatted result directly to Google Sheets or Excel.
-
-📈 Future Roadmap
-
-    [ ] Implement unit testing with Jest to ensure calculation integrity.
-
-    [ ] Add GitHub Actions for automated CI/CD deployment.
-
-    [ ] Internationalization (i18n) support for global currency formats.
+## 📈 Roadmap (Future Improvements)
+* [x] Dynamic UI configuration for business rules.
+* [ ] Implement **LocalStorage** persistence to save user settings.
+* [ ] Unit testing with **Jest** to ensure calculation integrity.
+* [ ] GitHub Actions setup for CI/CD automation.
+* [ ] Multi-language support (i18n) for different currency and date formats.
 </a>
