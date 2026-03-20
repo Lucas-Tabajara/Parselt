@@ -1,19 +1,3 @@
-/** * CONFIGURAÇÃO DAS REGRAS DE NEGÓCIO
- * Altera os valores abaixo para ajustar o cálculo das diárias.
- */
-const REGRAS_DIARIAS = {
-    VALOR_DIARIA: 20.00,
-    LIMITES: {
-        FAIXA_1: 6,  // Até 6h = 1 diária
-        FAIXA_2: 12  // Até 12h = 2 diárias, Acima disso = 3 diárias
-    },
-    QUANTIDADES: {
-        ATE_FAIXA_1: 1,
-        ATE_FAIXA_2: 2,
-        ACIMA_FAIXA_2: 3
-    }
-};
-
 // --- ELEMENTOS DA INTERFACE ---
 const dropZone = document.getElementById("drop-zone");
 const inputElement = document.getElementById("file-input");
@@ -25,8 +9,10 @@ const clearBtn = document.getElementById("clear-btn");
 
 // --- EVENTOS DE INTERFACE ---
 
+// Clique na zona de drop para abrir o seletor de arquivos
 dropZone.addEventListener("click", () => inputElement.click());
 
+// Efeitos visuais de arrastar arquivo
 dropZone.addEventListener("dragover", (e) => { 
     e.preventDefault(); 
     dropZone.style.borderColor = "#004d3d"; 
@@ -45,10 +31,12 @@ dropZone.addEventListener("drop", (e) => {
     if (e.dataTransfer.files.length) processFile(e.dataTransfer.files[0]);
 });
 
+// Evento para quando o arquivo é selecionado via clique
 inputElement.addEventListener("change", () => { 
     if (inputElement.files.length) processFile(inputElement.files[0]); 
 });
 
+// Botão de copiar resultado
 copyBtn.addEventListener("click", () => {
     outputText.select();
     navigator.clipboard.writeText(outputText.value).then(() => {
@@ -62,6 +50,7 @@ copyBtn.addEventListener("click", () => {
     });
 });
 
+// Botão de limpar tela
 clearBtn.addEventListener("click", () => {
     outputText.value = "";
     resultArea.style.display = "none";
@@ -72,11 +61,13 @@ clearBtn.addEventListener("click", () => {
 
 // --- FUNÇÕES DE APOIO ---
 
+// Converte "HH:MM" para total de minutos
 function extrairMinutos(timeStr) {
     const parts = String(timeStr).replace(/[^0-9:]/g, '').split(':');
     return (parseInt(parts[0]) || 0) * 60 + (parseInt(parts[1]) || 0);
 }
 
+// Converte minutos para o formato "HH:MM"
 function formatarHoras(mins) {
     return `${Math.floor(mins / 60).toString().padStart(2, '0')}:${(mins % 60).toString().padStart(2, '0')}`;
 }
@@ -86,6 +77,14 @@ function formatarHoras(mins) {
 function processFile(file) {
     statusElement.textContent = "Processando dados...";
     statusElement.style.color = "#009578";
+
+    // CAPTURA DAS REGRAS CUSTOMIZADAS DOS INPUTS DO HTML
+    const vDiaria = parseFloat(document.getElementById("cfg-valor").value) || 0;
+    const f1 = parseFloat(document.getElementById("cfg-f1").value) || 0;
+    const f2 = parseFloat(document.getElementById("cfg-f2").value) || 0;
+    const q1 = parseFloat(document.getElementById("cfg-q1").value) || 0;
+    const q2 = parseFloat(document.getElementById("cfg-q2").value) || 0;
+    const q3 = parseFloat(document.getElementById("cfg-q3").value) || 0;
     
     const reader = new FileReader();
     reader.onload = function(e) {
@@ -96,7 +95,7 @@ function processFile(file) {
 
             let colIni = -1, colTer = -1, idxCab = -1;
 
-            // Identificação dinâmica de colunas
+            // Identificação dinâmica de colunas (Início/Fim)
             for (let i = 0; i < rows.length; i++) {
                 for (let j = 0; j < rows[i].length; j++) {
                     const cell = String(rows[i][j]).toLowerCase();
@@ -115,6 +114,7 @@ function processFile(file) {
                 return;
             }
 
+            // Processamento único por registro (evita duplicatas)
             const registros = new Map();
             for (let i = idxCab + 1; i < rows.length; i++) {
                 const pI = String(rows[i][colIni]).trim().split(' ');
@@ -142,23 +142,24 @@ function processFile(file) {
 
             lista.forEach(r => {
                 let mI = extrairMinutos(r.ini), mT = extrairMinutos(r.ter);
-                if (mT < mI) mT += 1440; 
+                if (mT < mI) mT += 1440; // Ajuste para virada de dia
                 
                 let dif = mT - mI;
                 let hD = dif / 60;
                 
+                // CÁLCULO BASEADO NOS VALORES CUSTOMIZADOS
                 let d = 0;
-                if (hD > REGRAS_DIARIAS.LIMITES.FAIXA_2) d = REGRAS_DIARIAS.QUANTIDADES.ACIMA_FAIXA_2;
-                else if (hD > REGRAS_DIARIAS.LIMITES.FAIXA_1) d = REGRAS_DIARIAS.QUANTIDADES.ATE_FAIXA_2;
-                else if (hD > 0) d = REGRAS_DIARIAS.QUANTIDADES.ATE_FAIXA_1;
+                if (hD > f2) d = q3;
+                else if (hD > f1) d = q2;
+                else if (hD > 0) d = q1;
 
-                let v = d * REGRAS_DIARIAS.VALOR_DIARIA;
+                let v = d * vDiaria;
                 tD += d; tV += v;
                 
-                finalTxt += `${r.data};${r.ini};${r.ter};${formatarHoras(dif)};${d};${v}\n`;
+                finalTxt += `${r.data};${r.ini};${r.ter};${formatarHoras(dif)};${d};${v.toFixed(2)}\n`;
             });
 
-            finalTxt += `TOTAL;;;;${tD};${tV}`;
+            finalTxt += `TOTAL;;;;${tD};${tV.toFixed(2)}`;
             
             outputText.value = finalTxt;
             resultArea.style.display = "block";
@@ -166,6 +167,7 @@ function processFile(file) {
         } catch (err) { 
             statusElement.textContent = "Erro ao processar arquivo."; 
             statusElement.style.color = "red";
+            console.error(err);
         }
     };
     reader.readAsArrayBuffer(file);

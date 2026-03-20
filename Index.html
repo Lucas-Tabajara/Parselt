@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perito Contábil - Relatório Longo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+   <div class="container">
+    <h2>Perito Contábil 🔒</h2>
+    <p>Ajuste as regras de cálculo abaixo antes de processar a planilha.</p>
+
+    <div class="config-panel">
+        <div class="config-row">
+            <label for="cfg-valor">Valor da Diária (R$):</label>
+            <input type="number" id="cfg-valor" value="20.00" step="0.01">
+        </div>
+        
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+
+        <div class="config-row">
+            <label>Até <input type="number" id="cfg-f1" value="6"> horas:</label>
+            <span>Ganha <input type="number" id="cfg-q1" value="1"> diária(s)</span>
+        </div>
+
+        <div class="config-row">
+            <label>Até <input type="number" id="cfg-f2" value="12"> horas:</label>
+            <span>Ganha <input type="number" id="cfg-q2" value="2"> diária(s)</span>
+        </div>
+
+        <div class="config-row">
+            <label>Acima de <span id="f2-display">12</span> horas:</label>
+            <span>Ganha <input type="number" id="cfg-q3" value="3"> diária(s)</span>
+        </div>
+    </div>
+    
+    <div class="drop-zone" id="drop-zone">
+        <span>Arraste o arquivo aqui ou clique</span>
+        <input type="file" class="drop-zone__input" id="file-input" accept=".xlsx, .xls, .csv">
+    </div>
+    
+    <div id="result-area" style="display: none;">
+        <textarea id="output-text" spellcheck="false" readonly></textarea>
+        
+        <div class="button-group">
+            <button id="copy-btn">Copiar para o Google Planilhas</button>
+            <button id="clear-btn">Limpar</button>
+        </div>
+    </div>
+
+    <div class="status" id="status"></div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -102,9 +102,50 @@ body {
     background-color: #d32f2f;
 }
 
-/* MENSAGENS DE SISTEMA */
+/* PAINEL DE CONFIGURAÇÕES CUSTOMIZÁVEIS */
+.config-panel {
+    background: #f9f9f9; /* Cor de fundo leve para destacar a área */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    text-align: left; /* Alinhamento à esquerda para facilitar a leitura */
+}
+
+.config-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.config-row input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 65px;
+    text-align: center;
+    font-weight: bold;
+    color: #009578; /* Cor verde para combinar com o tema */
+}
+
+/* DESTAQUE PARA O VALOR EM DINHEIRO */
+#cfg-valor { 
+    width: 90px; 
+    background-color: #e8f0fe;
+}
+
+/* LINHA DIVISORA */
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 10px 0;
+}
+
+/* AJUSTE NA ÁREA DE STATUS PARA NÃO SOBREPOR */
 .status {
     margin-top: 15px;
-    color: #009578;
-    font-weight: bold;
+    min-height: 20px;
 }
